@@ -43,3 +43,74 @@ Mehrere Clients verbinden sich gleichzeitig mit dem Backend. Nachrichten werden 
 - Git installiert
 
 ---
+
+## Installation & Start
+
+```bash
+# 1. Repository klonen
+git clone https://github.com/i1sme/chat-app.git
+cd chat-app
+
+# 2. Umgebungsvariablen einrichten
+cp .env .env
+# Optional: Passwörter in .env anpassen
+
+# 3. Alle Container starten
+docker compose up -d
+```
+
+Danach unter **http://localhost:8080** im Browser öffnen.
+
+---
+
+## Verwendung
+
+1. Benutzernamen eingeben und auf **Use** klicken
+2. Einen Raum in der linken Sidebar auswählen
+3. Nachrichten schreiben und mit **Enter** oder **Send** abschicken
+4. Aktive Teilnehmer sind in der Sidebar unter **Online** sichtbar
+
+> Zum Testen der Echtzeit-Funktion: zwei Browser-Tabs öffnen, verschiedene Namen wählen, gleichen Raum beitreten.
+
+---
+
+## Projektstruktur
+ 
+```
+chat-app/
+├── docker-compose.yml       # Startet alle Services
+├── .env                     # Vorlage für Umgebungsvariablen
+├── db/
+│   └── init.sql             # Datenbankschema (wird automatisch ausgeführt)
+├── backend/
+│   ├── index.js             # Express + Socket.io Server
+│   ├── db.js                # Datenbankanbindung (mysql2)
+│   ├── package.json
+│   └── Dockerfile
+└── frontend/
+    ├── index.html           # Chat-Oberfläche (Single Page)
+    ├── nginx.conf
+    └── Dockerfile
+```
+ 
+---
+ 
+## Nützliche Befehle
+ 
+```bash
+# Status aller Container anzeigen
+docker compose ps
+ 
+# Logs anzeigen
+docker compose logs -f backend
+ 
+# Alle Container stoppen
+docker compose down
+ 
+# Container neu starten (nach Code-Änderungen)
+docker compose up --build -d
+```
+
+## Autor
+ 
+Arsenii Voloshyn
