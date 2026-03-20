@@ -25,3 +25,21 @@ Frontend (nginx)
 Mehrere Clients verbinden sich gleichzeitig mit dem Backend. Nachrichten werden in Echtzeit an alle Teilnehmer im selben Raum verteilt und in der Datenbank gespeichert.
 
 ---
+## Technologien
+
+| Komponente | Technologie |
+|------------|-------------|
+| Frontend   | HTML / CSS / JavaScript |
+| Backend    | Node.js, Express, Socket.io |
+| Datenbank  | MySQL 8.0 |
+| Container  | Docker, Docker Compose |
+| Webserver  | nginx (Frontend-Serving) |
+
+---
+
+## Voraussetzungen
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installiert
+- Git installiert
+
+---
