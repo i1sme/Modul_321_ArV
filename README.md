@@ -111,6 +111,14 @@ docker compose down
 docker compose up --build -d
 ```
 
+## Dokumentation
+ 
+
+`testprotokoll.docx` - Blackbox-Testfälle und Ergebnisse 
+`ausfallsicherheit.docx` - Ausfallanalyse aller Systemkomponenten 
+ 
+---
+
 ## Autor
  
 Arsenii Voloshyn
