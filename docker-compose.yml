@@ -4,25 +4,23 @@ services:
     container_name: chat_db
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-admin123}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-chatdb}
       MYSQL_USER: ${MYSQL_USER:-chatuser}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-chatpassword}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-user123}
     ports:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-rootpassword}"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-admin123}"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 30s
     networks:
       - chat_network
-
-
 
   backend:
     build:
@@ -39,13 +37,26 @@ services:
       DB_PORT: 3306
       DB_NAME: ${MYSQL_DATABASE:-chatdb}
       DB_USER: ${MYSQL_USER:-chatuser}
-      DB_PASSWORD: ${MYSQL_PASSWORD:-chatpassword}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-user123}
     depends_on:
       db:
         condition: service_healthy
     volumes:
       - ./backend:/app
       - /app/node_modules
+    networks:
+      - chat_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: chat_frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
     networks:
       - chat_network
 

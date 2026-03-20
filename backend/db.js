@@ -68,10 +68,8 @@ async function getMessages(room, limit = 50) {
      JOIN users u ON m.user_id = u.id
      WHERE m.room = ?
      ORDER BY m.created_at DESC
-     LIMIT ?`,
-    [room, limit]
+     LIMIT ${parseInt(limit)}`,[room]
   );
-  //DESC so that LIMIT fetches the latest, then reverse for chronological order
   return rows.reverse();
 }
 
