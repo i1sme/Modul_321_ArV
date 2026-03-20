@@ -48,11 +48,11 @@ Mehrere Clients verbinden sich gleichzeitig mit dem Backend. Nachrichten werden 
 
 ```bash
 # 1. Repository klonen
-git clone https://github.com/i1sme/chat-app.git
-cd chat-app
+git clone https://github.com/i1sme/Modul_321_ArV.git
+cd Modul_321_ArV
 
 # 2. Umgebungsvariablen einrichten
-cp .env .env
+cp .env.muster .env
 # Optional: Passwörter in .env anpassen
 
 # 3. Alle Container starten
@@ -114,7 +114,8 @@ docker compose up --build -d
 ## Dokumentation
  
 
-`testprotokoll.docx` - Blackbox-Testfälle und Ergebnisse 
+`testprotokoll.docx` - Blackbox-Testfälle und Ergebnisse
+
 `ausfallsicherheit.docx` - Ausfallanalyse aller Systemkomponenten 
  
 ---
