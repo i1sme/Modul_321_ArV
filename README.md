@@ -52,7 +52,7 @@ git clone https://github.com/i1sme/Modul_321_ArV.git
 cd chat-app
 
 # 2. Umgebungsvariablen einrichten
-cp .env .env
+cp .env.muster .env
 # Optional: Passwörter in .env anpassen
 
 # 3. Alle Container starten
