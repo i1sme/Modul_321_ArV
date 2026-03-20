@@ -48,7 +48,7 @@ Mehrere Clients verbinden sich gleichzeitig mit dem Backend. Nachrichten werden 
 
 ```bash
 # 1. Repository klonen
-git clone https://github.com/i1sme/chat-app.git
+git clone https://github.com/i1sme/Modul_321_ArV.git
 cd chat-app
 
 # 2. Umgebungsvariablen einrichten
